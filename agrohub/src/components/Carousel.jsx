@@ -17,7 +17,7 @@ function Carousel() {
 
     return (
         <div>
-            <div className='flex gap-3 mt-2'>
+            <div className='flex gap-5 mt-2'>
                 <DistanceFilter />
                 <TypeFilter />
                 <ReputationFilter />
