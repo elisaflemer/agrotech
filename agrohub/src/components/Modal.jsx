@@ -1,4 +1,5 @@
 import { useState } from "react";
+import coin from "../assets/coin.png";
 
 export default function Modal(props) {
     const [showModal, setShowModal] = useState(false);
@@ -9,9 +10,9 @@ export default function Modal(props) {
                 type="button"
                 onClick={() => setShowModal(true)}
             >
-                <img src={props.image}></img>
+                <img className="w-[250px]" src={props.image}></img>
                 <div className="bg-green-800 text-white bottom-0">
-                    <p>[{props.type}] {props.title}</p>
+                    <p className="w-max-36">[{props.type}] {props.title}</p>
                 </div>
                 <div className="text-gray-500 text-left">
                     <span className="flex gap-2 items-center font-Montserrat justify-between">
@@ -25,13 +26,15 @@ export default function Modal(props) {
                     </div>
 
                 </div>
+                {props.nft && <img className="w-10 absolute -right-3 -top-3" src={coin}></img>}
             </button>
+
             {showModal ? (
                 <>
                     <div
-                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none "
                     >
-                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl h-[80vh]">
                             {/*content*/}
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*header*/}
@@ -53,14 +56,17 @@ export default function Modal(props) {
                                     <img className="h-56" src={props.image}></img>
                                     <div className="my-4 text-slate-500 text-lg leading-relaxed">
                                         <span className="flex items-center justify-between">
-                                            <img className="w-8 rounded-full mr-2" src={props.userPic}></img>
-
-                                            <p className="font-bold pr-5">{props.user}</p>
+                                            <span className="flex items-center">
+                                                <img className="w-8 rounded-full mr-2" src={props.userPic}></img>
+                                                <p className="font-bold pr-5">{props.user}</p>
+                                            </span>
                                             <p>{props.rating}</p>
-                                            <p className="text-sm bg-green-600 ml-10 text-white px-2 py-2">{props.user} é um usuário 5 estrelas, com ótima reputação na plataforma!</p>
+                                            {props.rating === '⭐⭐⭐⭐⭐' && <p className="text-sm bg-green-600 ml-10 text-white px-2 py-2">{props.user} é um usuário 5 estrelas, com excelente reputação na plataforma!</p>}
+                                            {props.rating === '⭐⭐⭐⭐' && <p className="text-sm bg-green-600 ml-10 text-white px-2 py-2">{props.user} é um usuário 4 estrelas, com ótima reputação na plataforma!</p>}
+
 
                                         </span>
-                                        <p className="mt-3"><b>Descrição:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim vel dolor quibusdam quis perspiciatis debitis, ullam, commodi nulla amet incidunt, distinctio minus quia sint nostrum ipsa reiciendis aperiam ipsam voluptatibus.</p>
+                                        <p className="mt-3"><b>Descrição:</b> {props.description}</p>
                                     </div>
                                 </div>
                                 {/*footer*/}
