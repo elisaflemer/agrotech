@@ -7,7 +7,7 @@ export default function ReputationFilter(props) {
 
     const [selectedRating, setSelectedRating] = useState('Reputação')
 
-    const [ratingDropdownIsOpen, setRatingDropdownIsOpen] = useState('false')
+    const [ratingDropdownIsOpen, setRatingDropdownIsOpen] = useState(false)
 
     return (
         <div>

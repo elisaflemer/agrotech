@@ -9,7 +9,7 @@ export default function TypeFilter(props) {
 
     const [selectedType, setSelectedType] = useState('Tipo')
 
-    const [typeDropdownIsOpen, setTypeDropdownIsOpen] = useState('false')
+    const [typeDropdownIsOpen, setTypeDropdownIsOpen] = useState(false)
 
     return (
         <div>
